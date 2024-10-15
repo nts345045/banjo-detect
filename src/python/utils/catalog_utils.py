@@ -1,5 +1,5 @@
 """
-:module: BANJO-DETECT/src/python/catalog_utils.py
+:module: BANJO-DETECT/src/python/utils/catalog_utils.py
 :auth: Nathan T. Stevens & Barrett Johnson
 :email: ntsteven@uw.edu; bnjo@uw.edu
 :org: Pacific Northwest Seismic Network
