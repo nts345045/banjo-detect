@@ -1,0 +1,12 @@
+name: eqx
+channels:
+ - defaults
+ - conda-forge
+dependencies:
+ - pip
+ - git
+ - eqcorrscan
+ - pytest
+ - obsplus
+ - ipython
+ - jupyterlab
