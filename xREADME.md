@@ -1,4 +1,20 @@
-The pyhton environment I run this in is the envirnment from EQCorrscan using conda conda forge install eqcorrscan ( Just following thier instructions on their website.) Once the environment is set up, you can open the jupyter notebook, and then you should be able to run everything. 
+# BANJO-DETECT
+## Barrett Johnson's EQcorrscan implementation for Cascades Volcanoes Template Matching
+
+
+## Installation
+The `conda` environment to run this repository can be installed by running:
+```
+conda create env -f environment.yml
+```
+It installs `EQcorrscan` along with suggested supporting libraries, namely `obsplus` and `jupyterlab`.
+
+The python environment I run this in is the environment from EQCorrscan (just following thier instructions on their website)
+```
+conda create env -n eqcorrscan -c conda-forge install eqcorrscan
+``` 
+
+ Once the environment is set up, you can open the jupyter notebook, and then you should be able to run everything. 
 
 The only caveat in this is that I download the quakeML files from our database (through sarchdb). I don't know if you'd like Benz to go through that, or if it would be easier for me to just grab the events. 
 The process by which I download the QuakeML files is:
