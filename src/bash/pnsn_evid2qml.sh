@@ -13,15 +13,15 @@
 # Script formatting aided by ChatGPT 3.5
 
 usage() {
-    echo "Usage: $0 -i input_evid_file -o output_QML_file -n run_name -c config"
+    echo "Usage: $0 -i input_file -o output_dir -n run_name -c config"
     exit 1
 }
 
 # Parse command line argument
-while getopts "i:o:r" opt; do
+while getopts "i:o:r:c" opt; do
     case "$opt" in 
         i) input_file="$OPTARG" ;;
-        o) output_file="$OPTARG" ;;
+        o) output_dir="$OPTARG" ;;
         n) run_name="$OPTARG" ;;
         c) config="$OPTARG" ;;
         *) usage ;;
@@ -29,17 +29,23 @@ while getopts "i:o:r" opt; do
 done
 
 # Check if all required arguments are provided
-# Check if all required arguments are provided
-if [ -z "$input_file" ] || [ -z "$output_file" ] || [ -z "$run_name" ] || [ -z "$config" ]; then
+if [ -z "$input_file" ] || [ -z "$output_dir" ] || [ -z "$run_name" ] || [ -z "$config" ]; then
     echo "Error: Missing required arguments."
     usage
 fi
 
-cfile=$odir/${run_name}_qml_pull.sh
+if [ -d "$output_dir"]; then
+    echo "Writing to existing directory: $output_dir"
+else
+    echo "Creating output directory: $output_dir"
+    mkdir -p $output_dir
+fi
+
+# cfile=$odir/${run_name}_qml_pull.sh
 while read -r line; do
     evid=` echo $line | awl ' { print $1 } '`
     ofile=${evid}.xml
-    echo "qml -c $config -o $output_file -S $evid"
+    echo "qml -c $config -o $output_dir -S $evid"
     echo "Done with $evid"
 done < $input_file
 # cp pull_quakeml.sh $cfile
