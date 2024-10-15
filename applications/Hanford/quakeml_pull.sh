@@ -1,7 +1,7 @@
 #!/bin/bash
+# Load the QuakeML configuration file from role `rtem`
 config=/app/rtem/db/qml.conf
-
-
+# Name of the run
 run_name=hanford
 
 odir=/home/bnjo/${run_name}/
